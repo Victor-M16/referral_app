@@ -65,6 +65,10 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',  # Might be needed for frontend
     ),
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+    
+    # uncomment if clients want pagination
+    # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    # 'PAGE_SIZE': 1  # Number of items per page
 }
 
 MIDDLEWARE = [

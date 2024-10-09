@@ -5,10 +5,23 @@ This API allows you to manage patient data, medical histories, diagnostics, equi
 ## Base URL
 
 ```
-http://127.0.0.1:8000/api/
+https://referralapp-production.up.railway.app/api/
 ```
 
 ---
+
+## **Data Entry**
+
+### Django Admin
+
+You can enter some data to test using the django admin site, whose using the word admin for both username and password.
+
+The admin site is available on this link:
+
+```
+https://referralapp-production.up.railway.app/admin/
+```
+
 
 ## **Authentication**
 
@@ -63,11 +76,11 @@ Authorization: Bearer your_access_token
 
     ```json
     {
-        "first_name": "John",
-        "last_name": "Doe",
-        "dob": "1990-01-01",
-        "gender": "Male",
-        "contact_info": "123456789"
+        "first_name": "Grace",
+        "last_name": "Chiwaya",
+        "dob": "1960-01-01",
+        "gender": "Female",
+        "contact_info": "+265123456789"
     }
     ```
 
@@ -81,11 +94,11 @@ Authorization: Bearer your_access_token
 
     ```json
     {
-        "first_name": "John",
-        "last_name": "Doe",
-        "dob": "1990-01-01",
-        "gender": "Male",
-        "contact_info": "987654321"
+        "first_name": "Grace",
+        "last_name": "Chiwaya",
+        "dob": "2016-01-01",
+        "gender": "Female",
+        "contact_info": "+265123456789"
     }
     ```
 
@@ -254,20 +267,11 @@ Authorization: Bearer your_access_token
 You can filter data using query parameters. For example, to list all medical histories for a specific patient, use:
 
 ```http
-GET /medical-history/?patient_id=3
+GET /medical-history/?patient=3
 ```
 
 ---
 
-## **Pagination**
-
-All list endpoints return paginated results by default. You can pass `page` and `page_size` query parameters to adjust the number of results:
-
-```http
-GET /patients/?page=2&page_size=10
-```
-
----
 
 ## **Error Handling**
 
