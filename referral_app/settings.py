@@ -56,6 +56,7 @@ INSTALLED_APPS = [
 
 AUTH_USER_MODEL = 'core.User'
 CORS_ALLOW_ALL_ORIGINS = True
+CSRF_TRUSTED_ORIGINS = ['https://referralapp-production.up.railway.app']
 
 
 REST_FRAMEWORK = {
