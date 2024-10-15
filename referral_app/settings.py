@@ -36,6 +36,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-houafohc_c(sl(7tx$yfe9wgfmc8b7y$hwmiw##4ovmm*!)vv&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# DEBUG = True
 DEBUG = False
 ALLOWED_HOSTS = ['*']
 
@@ -59,6 +60,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'rest_framework_simplejwt',
+    'django_filters',
 ]
 
 AUTH_USER_MODEL = 'core.User'
@@ -97,10 +99,11 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'referral_app.urls'
 
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -112,6 +115,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'referral_app.wsgi.application'
 

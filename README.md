@@ -22,6 +22,7 @@ The admin site is available on this link:
 https://referralapp-production.up.railway.app/admin/
 ```
 
+---
 
 ## **Authentication**
 
@@ -58,6 +59,74 @@ For each subsequent request, include the access token in the **`Authorization`**
 
 ```http
 Authorization: Bearer your_access_token
+```
+
+---
+
+### API for data queries
+
+You can get a particular resource if you know 1 or more attributes using the API as well, for example, if I wanted the hospital with the name Mwaiwathu, I can do it using the **`/hospitals/`** endpoint as long as that hospital was registered.
+
+Just send a GET request to the endpoint and add a query with your hospital name in the url like:
+
+```
+https://referralapp-production.up.railway.app/api/hospitals/?name=Mwaiwathu
+```
+which would return:
+```json
+[
+    {
+        "id": 1,
+        "name": "Mwaiwathu",
+        "type": "Private",
+        "address": "Blantyre",
+        "contact_info": "+265888541637"
+    }
+]
+```
+---
+### API for data entry
+
+If you prefer, you can also use the API, using authenticated POST requests to the desired endpoints.
+
+If you want to create multiple Equipments for example, just send a list of JSON format objects to the **`/equipments/`** endpoint in a POST request like this:
+
+```json
+[
+    {
+    "equipment_name": "dialysis machine",
+    "description": "dialysis machine",
+    "available": true,
+    "hospital": 1
+    },
+    {
+    "equipment_name": "advanced blood scanning machine",
+    "description": "advanced blood scanning machine",
+    "available": false,
+    "hospital": 1
+    }
+]
+```
+
+Note how the hospital field expects a primary key. You can get the key or id corresponding to your hospital using the **`/hospitals/`** endpoint as long as that hospital was registered.
+
+Just send a GET request to the endpoint and add a query with your hospital name in the url like:
+
+```
+https://referralapp-production.up.railway.app/api/hospitals/?name=Mwaiwathu
+```
+
+which would return:
+```json
+[
+    {
+        "id": 1,
+        "name": "Mwaiwathu",
+        "type": "Private",
+        "address": "Blantyre",
+        "contact_info": "+265888541637"
+    }
+]
 ```
 
 ---
