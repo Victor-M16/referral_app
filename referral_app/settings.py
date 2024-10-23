@@ -45,8 +45,8 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     #built apps
-    'core',
-    'api',
+    'core', #app built to keep core logic such as model definitions (schema)
+    'api', #app built for api processing 
 
 
     'django.contrib.admin',
@@ -57,9 +57,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     #third party
-    'corsheaders',
-    'rest_framework',
-    'rest_framework_simplejwt',
+    'corsheaders', #to allow 
+    'rest_framework', #package that simplified api development with features like viewsets, routers etc
+    'rest_framework_simplejwt', #package that allows jwt authentication
     'django_filters',
 ]
 

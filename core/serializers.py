@@ -1,6 +1,8 @@
 from rest_framework import serializers
 from .models import Hospital, User, Patient, MedicalHistory, Diagnostic, Equipment, Referral
 
+# This module converts the resources into JSON objects for transfer over HTTP
+
 # Hospital Serializer
 class HospitalSerializer(serializers.ModelSerializer):
     class Meta:

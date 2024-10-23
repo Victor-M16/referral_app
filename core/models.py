@@ -17,6 +17,7 @@ class Hospital(models.Model):
         return self.name
 
 # User Model (Custom User)
+# Inheriting from Django's built in abstract user model to speed up development
 class User(AbstractUser):
     ROLE_CHOICES = [
         ('Doctor', 'Doctor'),

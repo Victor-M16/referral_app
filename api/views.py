@@ -13,12 +13,20 @@ logger = logging.getLogger(__name__)
 
 # Hospital Viewset
 class HospitalViewSet(viewsets.ModelViewSet):
-    queryset = Hospital.objects.all()
-    serializer_class = HospitalSerializer
-    filter_backends = [DjangoFilterBackend]
-    filterset_fields = '__all__' 
+    queryset = Hospital.objects.all() # The resources that this controller modifies
+    serializer_class = HospitalSerializer # Converts the objects in the queryset into JSON objects
+    filter_backends = [DjangoFilterBackend] # allows filtering by params like /api/hospitals/?type=Public
+    filterset_fields = '__all__' #configure which fields of the model the API  endpoint's controller should allow filtering based on
+
 
     def create(self, request, *args, **kwargs):
+        """_summary_
+        A viewset is robust in that with just a few lines you have produced a controller 
+        that auto maps the request's METHOD to the appropriate CRUD operation 
+        But we wanted to allow batch creation of resources if the clients wanted to add multiple resources with 
+        one POST request, so we had to override the create method of the viewset
+    
+        """
         # Check if the request data is a list (batch insert)
         if isinstance(request.data, list):
             # Use many=True to serialize the list of patients
